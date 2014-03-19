@@ -23,15 +23,15 @@ public class TrackerFX extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("TrackerFXUI.fxml"));
 
-        Scene scene = new Scene(root, 300, 275);
+        Scene scene = new Scene(root, 400, 350);
 
-        stage.getIcons().add(new Image(getClass().getResource("clock.png").toString()));
-        stage.setTitle("TrackerFX");
-        stage.setScene(scene);
-        stage.show();
+        primaryStage.getIcons().add(new Image(getClass().getResource("clock.png").toString()));
+        primaryStage.setTitle("TrackerFX");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
 }
