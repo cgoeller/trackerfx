@@ -11,6 +11,10 @@ public class Task {
     private String name;
     private Deque<WorkUnit> workUnits = new LinkedList<>();
 
+    public Task() {
+        this("unnamed task");
+    }
+
     public Task(String name) {
         this.name = name;
     }
@@ -21,6 +25,14 @@ public class Task {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Deque<WorkUnit> getWorkUnits() {
+        return workUnits;
+    }
+
+    public void setWorkUnits(Deque<WorkUnit> workUnits) {
+        this.workUnits = workUnits;
     }
 
     public void start() {

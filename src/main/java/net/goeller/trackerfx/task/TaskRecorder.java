@@ -20,7 +20,7 @@ public class TaskRecorder {
     public Task createNewTask() {
         stopCurrentTask();
 
-        Task task = new Task("Unnamed task");
+        Task task = new Task();
         tasks.add(task);
         currentTask = task;
         return task;
@@ -49,6 +49,4 @@ public class TaskRecorder {
             currentTask = null;
         }
     }
-
-
 }
