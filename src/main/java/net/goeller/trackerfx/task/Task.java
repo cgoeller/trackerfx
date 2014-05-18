@@ -1,7 +1,6 @@
 package net.goeller.trackerfx.task;
 
 import java.time.Duration;
-import java.util.Deque;
 import java.util.LinkedList;
 
 /**
@@ -9,13 +8,13 @@ import java.util.LinkedList;
  */
 public class Task {
     private String name;
-    private Deque<WorkUnit> workUnits = new LinkedList<>();
+    private LinkedList<WorkUnit> workUnits = new LinkedList<>();
 
     public Task() {
-        this("unnamed task");
+        this("Unnamed task");
     }
 
-    public Task(String name) {
+    public Task(final String name) {
         this.name = name;
     }
 
@@ -23,27 +22,27 @@ public class Task {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
-    public Deque<WorkUnit> getWorkUnits() {
+    public LinkedList<WorkUnit> getWorkUnits() {
         return workUnits;
     }
 
-    public void setWorkUnits(Deque<WorkUnit> workUnits) {
+    public void setWorkUnits(final LinkedList<WorkUnit> workUnits) {
         this.workUnits = workUnits;
     }
 
     public void start() {
-        WorkUnit workUnit = workUnits.peekLast();
+    	final WorkUnit workUnit = workUnits.peekLast();
         if (workUnit == null || !workUnit.isRunning()) {
             workUnits.addLast(new WorkUnit());
         }
     }
 
     public void stop() {
-        WorkUnit workUnit = workUnits.peekLast();
+        final WorkUnit workUnit = workUnits.peekLast();
         if (workUnit != null && workUnit.isRunning()) {
             workUnit.stopEvent();
         }
@@ -52,8 +51,8 @@ public class Task {
     @Override
     public String toString() {
 
-        long seconds = workUnits.stream().mapToLong(w -> w.getDuration().getSeconds()).sum();
-        Duration sum = Duration.ofSeconds(seconds);
+    	final long seconds = workUnits.stream().mapToLong(w -> w.getDuration().getSeconds()).sum();
+    	final Duration sum = Duration.ofSeconds(seconds);
 
         return "Task: " + name + ", total duration: " + TimeFormatter.format(sum);
     }

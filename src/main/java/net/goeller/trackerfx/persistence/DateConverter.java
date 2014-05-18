@@ -21,7 +21,7 @@ public class DateConverter implements SingleValueConverter {
     }
 
     @Override
-    public boolean canConvert(Class aClass) {
+    public boolean canConvert(@SuppressWarnings("rawtypes") Class aClass) {
         return LocalDateTime.class.equals(aClass);
     }
 }

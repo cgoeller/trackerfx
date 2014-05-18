@@ -40,7 +40,7 @@ public class TaskPersister {
         }
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public Collection<Task> load() {
 
         try (InputStream in = Files.newInputStream(file)) {
